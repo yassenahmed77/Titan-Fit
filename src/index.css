@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maincolor: #4e738a;
+}
+
+:root {
+  --maincolor: #4e738a;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components{
+    .container{
+        @apply mx-[auto] px-[30px]
+    }
+    .space{
+      @apply mt-8
+    }
+    .error{
+      @apply text-red-500 mt-5 font-bold mx-auto text-center text-2xl
+    }
+    .calc-input{
+      @apply  bg-slate-100 p-1.5 rounded-2xl p-3.5 outline-0 pl-11 w-full;
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+    .calc-input::-webkit-outer-spin-button,
+    .calc-input::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    select.calc-input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    select.calc-input::-ms-expand {
+      display: none;
+    }
+    .calc-div{
+      @apply flex flex-col gap-1.5
+    }
+    .details-section-border{
+      @apply  border-b border-maincolor py-3.5
+    }
+}
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+.group:hover .arrow-animation {
+  animation: arrowMove 0.8s infinite;
+}
+
+
+@keyframes floatProduct {
+  0% { transform: translateY(0px) rotate(15deg); }
+  50% { transform: translateY(-15px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(15deg); }
+}
+
+.float-animated {
+  animation: floatProduct 3.5s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
