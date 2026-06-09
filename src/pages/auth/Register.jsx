@@ -97,8 +97,6 @@ function Register() {
             <div className="container max-w-md w-full">
                 <ScrollReveal variant="fade-down" duration="duration-1000">
                     <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-100/40 relative overflow-hidden">
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-maincolor/5 rounded-full blur-2xl"></div>
-                        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-maincolor/5 rounded-full blur-2xl"></div>
                         {/* Header */}
                         <div className="text-center mb-8 relative">
                             <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-maincolor/10 text-maincolor mb-4">

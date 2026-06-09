@@ -45,8 +45,8 @@ function ProductCard({item}) {
                         <div className="grid grid-cols-4 gap-2 my-5 mt-3">
                             {Object.entries(item.details).map(([key,value]) => (
                                 <div key={key} className="bg-maincolor text-white h-[60px] rounded-xl font-bold capitalize flex flex-col items-center justify-center text-center p-1">
-                                    <span className="text-sm">{value}</span>
-                                    <span className="text-[9px] leading-tight mt-0.5">{key}</span>
+                                    <span className="text-xs md:text-sm">{value}</span>
+                                    <span className="text-[7px] md:text-[9px] leading-tight mt-0.5">{key}</span>
                                 </div>
                             ))}
                         </div>

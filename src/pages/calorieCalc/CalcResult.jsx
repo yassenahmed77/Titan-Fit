@@ -38,8 +38,9 @@ const displayNames = {
     }
 };
 
-function CalcResult({ formData, calcs, setSubmitted }) {
+function CalcResult({ formData, formattedResults, setSubmitted, calcs }) {
     const chosenGoal = Object.keys(calcs)[0];
+    const results = formattedResults();
     return (
                 <section className="container flex flex-col gap-6 p-6 sm:p-8 bg-white mt-8 w-full max-w-xl lg:max-w-2xl rounded-2xl shadow-2xl border border-slate-100 animate-fade-in">
                     <header className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 border-b border-slate-100 pb-5">
@@ -67,26 +68,10 @@ function CalcResult({ formData, calcs, setSubmitted }) {
                     </header>
                     <div className="flex flex-col gap-4">
                         {
-                            // Get calculations based on chosen goal
-                            Object.entries(calcs[chosenGoal] || {}).map(([key, value]) => {
+                            results.map(({key, value, proteinPurse, fatPurse, carbPurse, macros, deficit}) => {
                                 // Get [desc, styling colors, label] by key from calculations keys
                                 const details = displayNames[key];
                                 if (!details) return null;
-                                // Number of calorie deficit
-                                const deficit = Math.round(value - calcs[chosenGoal].maintain);
-                                // Macros purse from daily calories
-                                const proteinPurse = 0.35 ;
-                                const fatPurse = 0.25 ;
-                                const carbPurse = 0.4 ;
-                                // Macros calories from daily calories
-                                const protienKcal = Math.floor((value * proteinPurse));
-                                const fatKcal = Math.floor((value * fatPurse));
-                                const carbKcal = Math.floor((value * carbPurse));
-                                const macros = {
-                                    protien: {calorie: protienKcal, gram: Math.round(protienKcal / 4), color:`text-blue-500`},
-                                    carbs: {calorie: carbKcal, gram: Math.round(carbKcal / 4), color:`text-orange-500`},
-                                    fats: {calorie: fatKcal, gram: Math.round(fatKcal / 9), color:`text-rose-500`}
-                                }
                                 return (
                                     <div key={key} className={`border border-slate-200/60 rounded-2xl p-4 sm:p-5 transition-all duration-300 flex flex-col gap-4 shadow-sm hover:shadow-md ${details.color}`}>
                                         {/* Calorie Card [maintain & bulk...]*/}

@@ -54,11 +54,14 @@ function Header() {
                         <ul className='flex gap-5 flex-col'>
                             {list.map((item) => {
                                 return (
-                                    <li key={item.name} className='transition-all duration-300 hover:-translate-y-1 font-bold p-2.5 border-b border-gray-300 hover:border-black cursor-pointer'>
+                                    <li key={item.name} className="transition-all duration-300 hover:-translate-y-1 font-bold p-2.5 border-b border-gray-300 hover:border-black cursor-pointer">
                                         <Link to={item.link}>{item.name}</Link>
                                     </li>
                                 )
                             })}
+                            <li className="transition-all duration-300 hover:-translate-y-1 font-bold p-2.5 border-b border-gray-300 hover:border-black cursor-pointer">
+                                <Link to="/profile">Profile</Link>
+                            </li>
                         </ul>
                         <X className='cursor-pointer absolute top-2.5 right-2.5' onClick={() => setListOpen(false)} />
                     </div>
@@ -81,7 +84,7 @@ function Header() {
                     {/* Profile & Cart */}
                     <div className='flex gap-5 justify-end'>
                         <button className='transition-all duration-300 hover:scale-110 cursor-pointer' onClick={() => setSearchBarOpen(!searchBarOpen)}><Search /></button>
-                        <Link to={"/profile"} className='transition-all duration-300 hover:scale-110'><CircleUserRound /></Link>
+                        <Link to={"/profile"} className='hidden lg:block transition-all duration-300 hover:scale-110'><CircleUserRound /></Link>
                         <span className='relative transition-all duration-300 hover:scale-110'>
                             <Link to={"/cart"}><ShoppingCart /></Link>
                             {cartItems.length > 0 && (<span className='absolute -top-1.5 -right-2 h-4.5 w-4.5 bg-maincolor rounded-2xl flex items-center justify-center text-xs text-white font-extrabold'>{cartItems.length}</span>)}

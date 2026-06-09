@@ -52,7 +52,7 @@ function Footer() {
                             </li>
                         </ul>
                     </div>
-                    {/* Social links & Newsletter placeholder */}
+                    {/* Social links */}
                     <div className="flex flex-col gap-4 text-center md:text-left items-center md:items-start">
                         <h4 className="font-extrabold text-white text-sm uppercase tracking-wider">Follow Us</h4>
                         <p className="text-xs text-slate-500 leading-relaxed font-semibold">

@@ -18,7 +18,7 @@ function useCalorieCalculator() {
             ...formData,
             [e.target.name]: e.target.value
         })
-    }
+    };
     // Calculate calories and update user profile on submit
     async function handleSubmit(e) {
         e.preventDefault();
@@ -42,7 +42,7 @@ function useCalorieCalculator() {
                 )
             }
         }
-    }
+    };
     function calorieCalculation() {
         // Calculate BMR based on (gender & height & weight)
         let bmr;
@@ -58,20 +58,46 @@ function useCalorieCalculator() {
                 return { bulking: {
                 maintain: maintenance,
                 smallbulk: maintenance + 200,
-                goodBulk: maintenance + 800,
-                dirtyBulk: maintenance + 1500,
+                goodBulk: maintenance + 600,
+                dirtyBulk: maintenance + 1000,
                 }}
             }
             else if(formData.goal === "lose"){
                 return { cutting: {
                     maintain: maintenance,  
                     smallCut: maintenance - 200,
-                    goodCut: maintenance - 500,
+                    goodCut: maintenance - 600,
                     aggresiveCut: maintenance - 1000,
                 }}
             }
+    };
+    // Result Calculations
+    function formattedResults(){
+        // Cutting / Bulking
+        const chosenGoal = Object.keys(calcs)[0];
+        if(!chosenGoal) return [];
+        return Object.entries(calcs[chosenGoal] || {}).map(([key, value]) => {
+            // Number of calorie deficit
+            const deficit = Math.round(value - calcs[chosenGoal].maintain);
+            // Macros purse from daily calories
+            const proteinPurse = 0.20 ;
+            const fatPurse = 0.30 ;
+            const carbPurse = 0.5 ;
+            // Macros calories from daily calories
+            const protienKcal = Math.floor((value * proteinPurse));
+            const fatKcal = Math.floor((value * fatPurse));
+            const carbKcal = Math.floor((value * carbPurse));
+            const macros = {
+                protien: {calorie: protienKcal, gram: Math.round(protienKcal / 4), color:`text-blue-500`},
+                carbs: {calorie: carbKcal, gram: Math.round(carbKcal / 4), color:`text-orange-500`},
+                fats: {calorie: fatKcal, gram: Math.round(fatKcal / 9), color:`text-rose-500`}
+            }
+            return{
+                key,value,deficit,proteinPurse,fatPurse,carbPurse,protienKcal,fatKcal,carbKcal,macros
+            }
+        });
     }
-    return{formData, submitted, setSubmitted, calcs, handleChange, handleSubmit}
+    return{formData, submitted, setSubmitted, calcs, handleChange, handleSubmit, formattedResults}
 }
 
 export default useCalorieCalculator

@@ -12,7 +12,7 @@
 
 ## 📸 Screenshots & Demo
 
-> 🔗 **Live Demo:** [View TitanFit Live](https://titan-fit.netlify.app/)
+> 🔗 **Live Demo:** [View TitanFit Live](https://titan-fit-wine.vercel.app/)
 
 | Home Dashboard | Mobile View | Calorie Calculator Form | Calorie Calculator Result | Search Box |
 |:---:|:---:|:---:|:---:|:---:|
@@ -210,4 +210,5 @@ FOR INSERT TO public WITH CHECK (
 
 **Yassen Ahmed**
 - **GitHub:** [@yassenahmed77](https://github.com/yassenahmed77)
-- **Project Repository:** [TitanFit](https://github.com/yassenahmed77/TitanFit)
+- **LinkedIn:** [@yassenahmed](https://www.linkedin.com/in/yassen-ahmed-dev/)
+- **Gmail:** [yassennahmedd98@gmail.com](mailto:yassennahmedd98@gmail.com)

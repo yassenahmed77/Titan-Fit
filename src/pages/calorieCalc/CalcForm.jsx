@@ -2,7 +2,7 @@ import { User, Ruler, Scale, Activity, Dna } from "lucide-react";
 import CalcResult from "./CalcResult";
 import useCalorieCalculator from "./CalcLogic";
 function CalcForm() {
-    const {formData, submitted, setSubmitted, calcs, handleChange, handleSubmit} = useCalorieCalculator();
+    const {formData, submitted, setSubmitted, calcs, handleChange, handleSubmit, formattedResults} = useCalorieCalculator();
     return (
         <div className="flex flex-col justify-center items-center pt-8 pb-12 px-4 gap-2 bg-slate-50 min-h-screen">
             <h1 className="uppercase font-bold text-2xl sm:text-3xl bg-gradient-to-r from-slate-900 to-maincolor bg-clip-text text-transparent text-center">Calorie Calculator</h1>
@@ -96,7 +96,7 @@ function CalcForm() {
                     {/* Submit */}
                     <button type="submit" className="bg-maincolor text-white p-3 w-full col-span-1 lg:col-span-2 rounded-2xl font-bold uppercase cursor-pointer hover:shadow-xl transition-all duration-300">Calculate Calories</button>
                 </form>
-            ) : <CalcResult formData={formData} calcs={calcs} setSubmitted={setSubmitted} />
+            ) : <CalcResult formData={formData} calcs={calcs} setSubmitted={setSubmitted} formattedResults={formattedResults} />
                 }
         </div>
     );
