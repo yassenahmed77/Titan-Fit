@@ -210,5 +210,5 @@ FOR INSERT TO public WITH CHECK (
 
 **Yassen Ahmed**
 - **GitHub:** [@yassenahmed77](https://github.com/yassenahmed77)
-- **LinkedIn:** [@yassenahmed]([https://github.com/yassenahmed77](https://www.linkedin.com/in/yassen-ahmed-dev/))
+- **LinkedIn:** [@yassenahmed](https://www.linkedin.com/in/yassen-ahmed-dev/)
 - **Gmail:** [@yassenahmed](yassennahmedd98@gmail.com)
