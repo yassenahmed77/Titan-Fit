@@ -12,7 +12,7 @@
 
 ## 📸 Screenshots & Demo
 
-> 🔗 **Live Demo:** [View TitanFit Live](https://titan-fit.netlify.app/)
+> 🔗 **Live Demo:** [View TitanFit Live](https://titan-fit-wine.vercel.app/)
 
 | Home Dashboard | Mobile View | Calorie Calculator Form | Calorie Calculator Result | Search Box |
 |:---:|:---:|:---:|:---:|:---:|
