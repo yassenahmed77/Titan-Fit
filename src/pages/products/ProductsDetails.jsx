@@ -63,9 +63,9 @@ function ProductsDetails() {
     return (
         <section>
             {loading && (
-                <div className="container mt-40 grid grid-cols-1 gap-1.5 md:grid-cols-2 p-10">
-                    <div className="flex justify-center h-[800px]">
-                        <div className="h-[500px] w-[500px] bg-gray-100 rounded-2xl animate-pulse"></div>
+                <div className="container mt-32 sm:mt-40 grid grid-cols-1 gap-6 md:grid-cols-2 px-4 py-6 sm:p-10">
+                    <div className="flex justify-center">
+                        <div className="h-[300px] w-full max-w-[400px] bg-gray-100 rounded-2xl animate-pulse"></div>
                     </div>
                     <div className="">
                         <p className="bg-gray-100 h-[30px] w-full mb-10 animate-pulse"></p>
@@ -75,16 +75,16 @@ function ProductsDetails() {
                     </div>
                 </div>
             )}
-            <div className="container mt-40 grid grid-cols-1 gap-1.5 md:grid-cols-2 p-10">
+            <div className="container mt-32 sm:mt-40 grid grid-cols-1 gap-6 md:grid-cols-2 px-4 py-6 sm:p-10">
                 {!loading && (
                     <>
                         {/* Image Viewer */}
                         <div className="flex flex-col items-center gap-3.5">
-                            <div className="w-[500px] h-[500px] flex items-center justify-center">
-                                <img src={`${!nutritionPhoto ? product.image : product.nutritionImage}`} alt="" className="max-w-full max-h-full" />
+                            <div className="w-full max-w-[400px] sm:max-w-[500px] aspect-square flex items-center justify-center">
+                                <img src={`${!nutritionPhoto ? product.image : product.nutritionImage}`} alt="" className="max-w-full max-h-full object-contain" />
                             </div>
                             {product.nutritionImage && (
-                                <div className="w-[100px] h-[100px] border-2 border-maincolor rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105 flex justify-center items-center">
+                                <div className="w-[90px] h-[90px] sm:w-[100px] sm:h-[100px] border-2 border-maincolor rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105 flex justify-center items-center">
                                     <img src={`${nutritionPhoto ? product.image : product.nutritionImage}`} alt="" className="max-w-full max-h-full cursor-pointer" onClick={() => setNutritionPhoto(!nutritionPhoto)} />
                                 </div>
                             )}
@@ -92,7 +92,7 @@ function ProductsDetails() {
                         {/* Product Info */}
                         <div>
                             <div className="border-b border-maincolor">
-                                <h1 className="text-2xl font-extrabold uppercase italic">{product.brand} - {product.flavor} - {product.category?.replaceAll("-", " ")}</h1>
+                                <h1 className="text-xl sm:text-2xl font-extrabold uppercase italic">{product.brand} - {product.flavor} - {product.category?.replaceAll("-", " ")}</h1>
                                 <div className="flex gap-1 items-center mt-2.5 text-maincolor pb-5">
                                     <span className="italic font-bold text-xl">{product.price}</span>
                                     <span className="text-xs italic font-semibold">EGP</span>
@@ -117,12 +117,12 @@ function ProductsDetails() {
                                 <button className="bg-white border-2 text-maincolor uppercase mt-5.5 py-2 font-bold cursor-pointer rounded-2xl hover:text-white hover:bg-maincolor transition-all duration-300" onClick={() => handleAddToCart(product)}>Add To Cart</button>
                             </div>
                             <div className="details-section-border">
-                                <p className="mt-3.5 font-bold leading-9 w-[80%]">{product.description}</p>
+                                <p className="mt-3.5 font-bold leading-9 w-full">{product.description}</p>
                             </div>
-                            <div className="flex flex-col gap-10 items-center mt-6">
+                            <div className="flex flex-col gap-6 items-center mt-6">
                                 {Object.entries(product.details || {}).map(([key, value]) => {
                                     return (
-                                        <div key={key} className="bg-maincolor text-white flex flex-col w-[300px] py-3.5 px-7 justify-center items-center rounded-2xl shadow-2xl">
+                                        <div key={key} className="bg-maincolor text-white flex flex-col w-full max-w-[300px] py-3.5 px-7 justify-center items-center rounded-2xl shadow-2xl">
                                             <h1 className="font-extrabold text-xl">{value}</h1>
                                             <h1 className="font-extrabold text-3xl mt-0.5">{key}</h1>
                                         </div>
